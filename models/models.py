@@ -1,13 +1,13 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from core.dabase import Base
+from core.database import Base
 
 class TipoUnidade(Base):
     __tablename__ = "tipo_unidade"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
-    nome: Mapped[str] = mapped_column(String, unique=False, index=True)
+    nome: Mapped[str] = mapped_column(String, unique=True, index=True)
 
 class Unidade(Base):
     __tablename__ = "unidades"
@@ -29,10 +29,9 @@ class Endereco(Base):
     logradouro: Mapped[str] = mapped_column(String, index=True)
     numero: Mapped[str] = mapped_column(String, index=True)
     ponto_referencia: Mapped[str] = mapped_column(String, index=True)
-
+    bairro: Mapped[str] = mapped_column(String, index=True)
 class Servico(Base):
     __tablename__ = "servicos"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
     descricao: Mapped[str] = mapped_column(String, index=True)
-
