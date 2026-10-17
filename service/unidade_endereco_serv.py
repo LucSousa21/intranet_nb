@@ -2,7 +2,7 @@ from sqlalchemy import select
 from models.models import Endereco, Unidade, UnidadeEndereco
 
 
-def buscar_unidade_endereco(session):
+def buscar_unidade_endereco(session, filial):
     """
     Busca as unidades e seus respectivos endereços no banco de dados.
 
@@ -29,6 +29,7 @@ def buscar_unidade_endereco(session):
                 Endereco,
                 UnidadeEndereco.endereco_id == Endereco.id
             )
+            .where(Unidade.filial == filial)
         )
 
         resultados = session.execute(stmt).mappings().all()
