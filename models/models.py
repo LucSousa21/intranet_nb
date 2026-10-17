@@ -14,6 +14,7 @@ class Unidade(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
     nome: Mapped[str] = mapped_column(String, unique=True, index=True)
+    filial: Mapped[str] = mapped_column(String, unique=False, index=True)
     tipo_id: Mapped[int] = mapped_column(Integer, ForeignKey("tipo_unidade.id"))
 
 class UnidadeEndereco(Base):
