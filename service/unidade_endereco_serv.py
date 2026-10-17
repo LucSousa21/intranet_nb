@@ -1,19 +1,39 @@
-from sqlalchemy.orm import sessionmaker
-from core.database import engine
-from models.models import UnidadeEndereco
+from sqlalchemy import select
+from models.models import Endereco, Unidade, UnidadeEndereco
 
-Session = sessionmaker(bind=engine)
 
-"""
-    Função que vai buscar todos os endereços de unidade cadastrados no banco de dados.
-    Retorna uma lista de objetos UnidadeEndereco ou None se não houver endereços de unidade cadastrados
-"""
 def buscar_unidade_endereco(session):
-    try:
-        unidade_endereco = session.query(UnidadeEndereco).all()
-        if not unidade_endereco:
-            return None
+    """
+    Busca as unidades e seus respectivos endereços no banco de dados.
 
-        return unidade_endereco
-    finally:
-        session.close()
+    Retorna uma lista de dicionários contendo o nome e o tipo da unidade,
+    além dos dados do endereço. Retorna uma lista vazia caso não existam
+    resultados.
+    """
+    try:
+        stmt = (
+            select(
+                Unidade.nome.label("unidade_nome"),
+                Unidade.tipo_id.label("tipo_unidade_id"),
+                Endereco.id.label("endereco_id"),
+                Endereco.logradouro,
+                Endereco.numero,
+                Endereco.ponto_referencia,
+                Endereco.bairro
+            )
+            .join(
+                UnidadeEndereco,
+                UnidadeEndereco.unidade_id == Unidade.id
+            )
+            .join(
+                Endereco,
+                UnidadeEndereco.endereco_id == Endereco.id
+            )
+        )
+
+        resultados = session.execute(stmt).mappings().all()
+
+        return [dict(resultado) for resultado in resultados]
+
+    except Exception:
+        raise
