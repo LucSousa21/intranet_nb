@@ -4,7 +4,15 @@ from fastapi.staticfiles import StaticFiles
 
 from routes.routes import router
 
-app = FastAPI()
+from fastapi import FastAPI
+
+app = FastAPI(
+    title="API de Endereços de Unidades",
+    description="API para consulta de endereços das unidades da Hapvida",
+    version="1.0.0",
+    docs_url="/swagger",
+    redoc_url="/redoc"
+)
 
 # Disponibiliza arquivos estáticos, como CSS, JavaScript e imagens.
 app.mount("/static", StaticFiles(directory="static"), name="static")
