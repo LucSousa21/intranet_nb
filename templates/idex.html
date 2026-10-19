@@ -1,15 +1,20 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="/static/imagens/hapvida.png">>
-  <title>Hapvida - Endereços das Filiais</title>
-  <link rel="stylesheet" href="/static/style.css">
- 
 
+  <link rel="icon" href="/static/imagens/hapvida.png">
+  <title>Hapvida - Endereços das Filiais</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="/static/style.css?v=2.1">
 </head>
 
 <body>
@@ -17,27 +22,34 @@
 
     <section id="menu">
       <div id="logo">
-        <img src="/static/imagens/banner.png"
-             alt="Endereços das Filiais Hapvida">
+        <img
+          src="/static/imagens/banner.png"
+          alt="Endereços das Filiais Hapvida"
+        >
       </div>
 
       <div class="botoes">
-        <button onclick="carregarEnderecos('Fortaleza')">
+        <button onclick="carregarEnderecos('Fortaleza', '/api-fortaleza')">
           Fortaleza
         </button>
-        <button onclick="carregarEnderecos('Salvador')">
+
+        <button onclick="carregarEnderecos('Salvador', '/api-salvador')">
           Salvador
         </button>
-        <button onclick="carregarEnderecos('Recife')">
+
+        <button onclick="carregarEnderecos('Recife', '/api-recife')">
           Recife
         </button>
-        <button onclick="carregarEnderecos('Belém')">
+
+        <button onclick="carregarEnderecos('Belém', '/api-belem')">
           Belém
         </button>
-        <button onclick="carregarEnderecos('Goiânia')">
+
+        <button onclick="carregarEnderecos('Goiânia', '/api-goiania')">
           Goiânia
         </button>
-        <button onclick="carregarEnderecos('Manaus')">
+
+        <button onclick="carregarEnderecos('Manaus', '/api-manaus')">
           Manaus
         </button>
       </div>
@@ -47,7 +59,7 @@
       </footer>
     </section>
 
-    <section id="tela-enderecos">
+    <section id="tela-enderecos" style="display: none;">
       <h2 id="titulo-cidade">Endereços das Filiais</h2>
 
       <div id="lista-enderecos"></div>
@@ -59,6 +71,7 @@
     </section>
 
   </main>
-  <script src="/static/script.js" defer></script>
+
+  <script src="/static/script.js?v=2.1.2" defer></script>
 </body>
 </html>
