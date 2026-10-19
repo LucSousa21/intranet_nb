@@ -1,130 +1,274 @@
+
+/* ========================================
+   CONFIGURAÇÕES GERAIS
+======================================== */
+
 * {
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #4facfe, #00f2fe);
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
+  box-sizing: border-box;
+}
 
-    .container {
-      text-align: center;
-      background: rgba(0, 0, 0, 0.7);
-      border-radius: 10px;
-      padding: 30px 20px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      color: white;
-      width: 100%;
-      max-width: 650px;
-    }
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
 
-    #logo {
-      margin-bottom: 20px;
-    
-    }
+/* ========================================
+   CONTAINER PRINCIPAL
+======================================== */
 
-    #logo img {
-      width: 250px;
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
+.container {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 12px;
+  padding: 30px 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  color: white;
+  width: 100%;
+  max-width: 650px;
+}
 
-    .botoes {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-    }
+/* ========================================
+   LOGO
+======================================== */
 
-    button {
-      width: 130px;
-      min-height: 52px;
-      background-color: #081bc7;
-      color: white;
-      padding: 10px;
-      font-size: 1.05em;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
+#logo {
+  margin-bottom: 20px;
+}
 
-    button:hover {
-      background-color: #24a9eb;
-    }
+#logo img {
+  width: 250px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
 
-    #tela-enderecos {
-      display: none;
-      background: #42b5f5;
-      color: #123b55;
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 15px;
-      text-align: left;
-    }
+/* ========================================
+   BOTÕES DAS CIDADES
+======================================== */
 
-    #tela-enderecos h2 {
-      text-align: center;
-      color: #083b86;
-    }
+.botoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
 
-    #lista-enderecos {
-      display: grid;
-      grid-template-columns: repeat(
-        auto-fit, minmax(220px, 1fr)
-      );
-      gap: 12px;
-    }
+button {
+  width: 130px;
+  min-height: 52px;
+  background-color: #081bc7;
+  color: #ffffff;
+  padding: 10px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
 
-    .endereco-card {
-      background: white;
-      padding: 16px;
-      border-radius: 8px;
-      overflow-wrap: anywhere;
-      box-shadow: 0 3px 8px #0002;
-    }
+button:hover {
+  background-color: #0879c9;
+  transform: translateY(-2px);
+}
 
-    .endereco-card h3 {
-      color: #0645ad;
-      margin-top: 0;
-    }
+button:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
 
-    .endereco-card p {
-      line-height: 1.5;
-      margin-bottom: 6px;
-    }
+/* ========================================
+   TELA DE ENDEREÇOS
+======================================== */
 
-    #voltar {
-      display: block;
-      margin: 20px auto 0;
-      background: #083b86;
-    }
+#tela-enderecos {
+  display: none;
+  background: #edf6fc;
+  color: #243b53;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 15px;
+  text-align: left;
+}
 
-    #mensagem {
-      text-align: center;
-      color: #123b55;
-      font-size: 0.9em;
-    }
+/* Título da cidade */
 
-    footer {
-      margin-top: 45px;
-      font-size: 14px;
-      color: #FFE45C;
-    }
+#tela-enderecos > h2 {
+  text-align: center;
+  color: #083b86;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 24px;
+}
 
-    @media (max-width: 400px) {
-      .container {
-        padding: 20px 12px;
-      }
+/* ========================================
+   LISTA DE TIPOS E UNIDADES
+======================================== */
 
-      button {
-        width: 125px;
-      }
-    }
+#lista-enderecos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Faixa azul: Administrativo, Laboratórios etc. */
+
+#lista-enderecos > h2 {
+  background: linear-gradient(135deg, #083b86, #0879c9);
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.5;
+  padding: 13px 16px;
+  margin: 12px 0 0;
+  border-radius: 8px;
+  border-left: 5px solid #42b5f5;
+  box-shadow: 0 3px 8px rgba(8, 59, 134, 0.12);
+}
+
+/* ========================================
+   CARTÕES DAS UNIDADES
+======================================== */
+
+.endereco-card {
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 8px;
+  border: 1px solid #d9e7f2;
+  border-left: 4px solid #42b5f5;
+  overflow-wrap: anywhere;
+  box-shadow: 0 3px 8px rgba(18, 59, 85, 0.06);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.endereco-card:hover {
+  box-shadow: 0 5px 14px rgba(18, 59, 85, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Nome da unidade */
+
+.endereco-card h3 {
+  color: #083b86;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+/* Rua, número, bairro e referência */
+
+.endereco-card p {
+  color: #334155;
+  font-family: "Inter", sans-serif;
+  font-size: 0.94rem;
+  font-weight: 500;
+  line-height: 1.7;
+  margin: 5px 0;
+}
+
+/* ========================================
+   MENSAGENS
+======================================== */
+
+#mensagem {
+  text-align: center;
+  color: #123b55;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-top: 16px;
+}
+
+/* ========================================
+   BOTÃO VOLTAR
+======================================== */
+
+#voltar {
+  display: block;
+  margin: 24px auto 0;
+  background: #083b86;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+}
+
+#voltar:hover {
+  background: #0879c9;
+}
+
+/* ========================================
+   RODAPÉ
+======================================== */
+
+footer {
+  margin-top: 45px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #ffe45c;
+}
+
+/* ========================================
+   RESPONSIVIDADE PARA CELULARES
+======================================== */
+
+@media (max-width: 400px) {
+  body {
+    padding: 12px;
+  }
+
+  .container {
+    padding: 20px 12px;
+  }
+
+  .botoes {
+    gap: 8px;
+  }
+
+  button {
+    width: 125px;
+    font-size: 0.9rem;
+  }
+
+  #tela-enderecos {
+    padding: 14px 10px;
+  }
+
+  #tela-enderecos > h2 {
+    font-size: 1.2rem;
+  }
+
+  #lista-enderecos > h2 {
+    font-size: 0.95rem;
+    padding: 12px;
+  }
+
+  .endereco-card {
+    padding: 14px;
+  }
+
+  .endereco-card h3 {
+    font-size: 0.95rem;
+  }
+
+  .endereco-card p {
+    font-size: 0.9rem;
+  }
+}
