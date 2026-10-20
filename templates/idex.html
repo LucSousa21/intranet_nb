@@ -36,6 +36,13 @@
         <button onclick="carregarEnderecos('Salvador', '/api-salvador')">
           Salvador
         </button>
+        <div class="botoes">
+        <button onclick="carregarEnderecos('Lauro de Freitas', '/api-lauro-de-freitas')">
+          Lauro de Freitas
+        </button>
+        <button onclick="carregarEnderecos('Camaçari', '/api-camacari')">
+          Camaçari
+        </button>
 
         <button onclick="carregarEnderecos('Recife', '/api-recife')">
           Recife
@@ -54,9 +61,9 @@
         </button>
       </div>
 
-      <footer>
+      <section id="rodape1">
         <p>© 2026. Todos os Direitos Reservados</p>
-      </footer>
+      </section>
     </section>
 
     <section id="tela-enderecos" style="display: none;">
@@ -69,9 +76,36 @@
         Voltar
       </button>
     </section>
-
+    
   </main>
+   <footer class="site-footer">
+    <p class="footer-title">Website developed by</p>
+
+    <div class="footer-content">
+      <div class="developer">
+        <span class="developer-icon">&lt;/&gt;</span>
+        <div>
+          <strong>João Victor</strong>
+          <span>Frontend Developer</span>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="developer">
+        <span class="developer-icon">▤</span>
+        <div>
+          <strong>Lucas Carvalho</strong>
+          <span>Backend Developer</span>
+        </div>
+      </div>
+
+      
+    </div>
+  </footer>
+ 
 
   <script src="/static/script.js?v=2.1.2" defer></script>
 </body>
 </html>
+
